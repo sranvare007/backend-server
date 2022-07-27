@@ -17,9 +17,21 @@ const recruitmentSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a valid eligibility criteria."],
   },
-  ctcProvided: {
+  minCtcProvided: {
     type: Number,
     required: [true, "Please provide a valid ctcProvided."],
+  },
+  maxCtcProvided: {
+    type: Number,
+    required: [true, "Please provide a valid ctcProvided."],
+  },
+  batchRecruitingFor: {
+    type: String,
+    required: [true, "Please provide a valid batchRecruitingFor."],
+  },
+  jobLocation: {
+    type: String,
+    required: [true, "Please provide a valid jobLocation."],
   },
   minCGPA: {
     type: Number,

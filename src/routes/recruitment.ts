@@ -13,7 +13,10 @@ recruitmentRouter.post("/recruitment", verifyJwt, async (req, res, next) => {
     companyName,
     rolesHiring,
     eligibilityCriteria,
-    ctcProvided,
+    minCtcProvided,
+    maxCtcProvided,
+    batchRecruitingFor,
+    jobLocation,
     minCGPA,
   } = req.body;
   try {
@@ -22,7 +25,9 @@ recruitmentRouter.post("/recruitment", verifyJwt, async (req, res, next) => {
     });
 
     if (existingRecruitment) {
-      throw CreateError.BadRequest(`Recruitment with id ${id} already exists.`);
+      throw CreateError.BadRequest(
+        `Recruitment details with id ${id} already exists.`
+      );
     }
 
     const recruitment = new Recruitment({
@@ -30,7 +35,10 @@ recruitmentRouter.post("/recruitment", verifyJwt, async (req, res, next) => {
       companyName,
       rolesHiring,
       eligibilityCriteria,
-      ctcProvided,
+      minCtcProvided,
+      maxCtcProvided,
+      batchRecruitingFor,
+      jobLocation,
       minCGPA,
     });
 
